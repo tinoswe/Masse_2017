@@ -30,7 +30,7 @@ W_nom <- N*5
 W_nom_up <- W_nom + 0.5*W_nom/100.
 W_nom_down <- W_nom - 0.5*W_nom/100.
 
-N_exp <- 1000
+N_exp <- 1e2
 #create empty plot with axes
 plot(0,
      xaxt='n',
@@ -45,7 +45,8 @@ plot(0,
      main = paste("N exp = ",N_exp,sep=" "))
 axis(1,
      at=seq(1,N_exp+1),
-     labels="")
+     labels="",
+     title="ciao")
 axis(2,
      at=seq(W_nom - 2*(W_nom_up - W_nom),
             W_nom + 2*(W_nom_up - W_nom),
@@ -71,7 +72,7 @@ for (i in 1:N_exp){
   points(sim_cnt,
          W_real,
          col="red",
-         pch=26)
+         pch=20)
 
   arrows(sim_cnt, 
          W_real - W_real_inc, 
@@ -85,3 +86,4 @@ for (i in 1:N_exp){
 }
 
 df_sim
+warnings()
